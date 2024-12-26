@@ -1,17 +1,21 @@
-import CurrentUserLoader from "./CurrentUserLoader";
-import UserLoader from "./UserLoader";
-import UserInfo from "./UserInfo";
 import { Fragment } from "react";
+import axios from "axios";
+import UserInfo from "./UserInfo";
+import DataSource from "./DataSource";
+
+const getServerData = url => async () => {
+  const response = await axios.get(`api/${url}`);
+  const data = response.data;
+  return data;
+};
+
 
 function App() {
   return (
     <Fragment>
-      <UserLoader userId={'2'}>
+      <DataSource getDataFunc={getServerData('users/2')} resourceName="currentUser">
         <UserInfo />
-      </UserLoader>
-      <UserLoader userId={'3'}>
-        <UserInfo />
-      </UserLoader>
+      </DataSource>
     </Fragment>
   );
 }

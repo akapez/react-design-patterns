@@ -1,7 +1,7 @@
 const ProductInfo = ({ product }) => {
-    const { name, price, description, rating } = product;
+    const { name, price, description, rating } = product || {};
 
-    return (
+    return product ? (
         <>
             <h3>{name}</h3>
             <p>{price}</p>
@@ -9,7 +9,7 @@ const ProductInfo = ({ product }) => {
             <p>{description}</p>
             <p>Average Rating: {rating}</p>
         </>
-    );
+    ) : <p>Loading...</p>;
 
 };
 
