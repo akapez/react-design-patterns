@@ -1,3 +1,3 @@
 # React Design Patterns
 
-- Layout Components
+- Controlled and Uncontrolled Components
