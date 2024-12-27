@@ -5,3 +5,4 @@
 - Controlled and Uncontrolled Components
 - Higher-Order Components
 - Custom Hooks
+- Functional Programming
