@@ -1,19 +1,30 @@
-import SplitScreen from "./SplitScreen";
+import RecursiveComponents from "./RecursiveComponents";
 
-const LeftHandComponent = ({ name }) => {
-  return <h1 style={{ backgroundColor: 'green' }}>{name}</h1>;
-};
-
-const RightHandComponent = ({ message }) => {
-  return <h1 style={{ backgroundColor: 'red' }}>{message}</h1>;
+const nestedObject = {
+  a: 1,
+  b: {
+    b1: 4,
+    b2: {
+      b23: 'Hello',
+    },
+    b3: {
+      b31: {
+        message: 'Hi',
+      },
+      b32: {
+        message: 'Hi',
+      }
+    }
+  },
+  c: {
+    c1: 2,
+    c2: 3,
+  }
 };
 
 function App() {
   return (
-    <SplitScreen leftWeight={1} rightWeight={3}>
-      <LeftHandComponent name={"Menu"} />
-      <RightHandComponent message={"Articles"} />
-    </SplitScreen>
+    <RecursiveComponents data={nestedObject} />
   );
 }
 
