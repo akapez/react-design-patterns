@@ -1,7 +1,13 @@
-import { useResource } from "./useResource";
+import { useDataSource } from "./useDataSource";
+import axios from "axios";
+
+const serverResource = resourceUrl => async () => {
+    const response = await axios.get(`/api/${resourceUrl}`);
+    return response.data;
+};
 
 const UserInfo = ({ userId }) => {
-    const currentUser = useResource(`users/${userId}`);
+    const currentUser = useDataSource(serverResource(`users/${userId}`));
     const { name, age, hairColor, hobbies } = currentUser || {};
     console.log(currentUser);
     return currentUser ? (
