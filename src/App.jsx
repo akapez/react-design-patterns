@@ -1,18 +1,11 @@
-import CurrentUserLoader from "./CurrentUserLoader";
-import UserLoader from "./UserLoader";
-import UserInfo from "./UserInfo";
-import { Fragment } from "react";
+import { printProps } from './printProps';
+import UserInfo from './UserInfo';
+
+const UserInfoWrapped = printProps(UserInfo);
 
 function App() {
   return (
-    <Fragment>
-      <UserLoader userId={'2'}>
-        <UserInfo />
-      </UserLoader>
-      <UserLoader userId={'3'}>
-        <UserInfo />
-      </UserLoader>
-    </Fragment>
+    <UserInfoWrapped name="John" age={25} />
   );
 }
 

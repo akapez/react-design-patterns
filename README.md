@@ -1,3 +1,3 @@
 # React Design Patterns
 
-- Container Components
+- Higher-Order Components
