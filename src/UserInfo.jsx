@@ -1,4 +1,8 @@
-const UserInfo = ({ currentUser }) => {
+import { useCurrentUser } from "./useCurrentUser";
+import { useUser } from "./useUser";
+
+const UserInfo = ({ userId }) => {
+    const currentUser = useUser(userId);
     const { name, age, hairColor, hobbies } = currentUser || {};
     console.log(currentUser);
     return currentUser ? (

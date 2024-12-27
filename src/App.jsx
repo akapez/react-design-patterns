@@ -1,11 +1,12 @@
-import { printProps } from './printProps';
-import UserInfo from './UserInfo';
-
-const UserInfoWrapped = printProps(UserInfo);
+import { Fragment } from "react";
+import UserInfo from "./UserInfo";
 
 function App() {
   return (
-    <UserInfoWrapped name="John" age={25} />
+    <Fragment>
+      <UserInfo userId="2" />
+      <UserInfo userId="3" />
+    </Fragment>
   );
 }
 
